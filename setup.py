@@ -13,4 +13,3 @@ setup(
         'console_scripts': ['sflight = search.search:main']
     }
 )
-

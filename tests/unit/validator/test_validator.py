@@ -1,7 +1,9 @@
+from argparse import ArgumentTypeError
 from datetime import datetime
 from unittest import TestCase
+
 from search.validator import Validations
-from argparse import ArgumentTypeError
+
 
 class TestValidator(TestCase):
 
