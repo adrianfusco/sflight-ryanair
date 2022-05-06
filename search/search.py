@@ -48,8 +48,7 @@ def print_flight_info(flight_info: dict) -> None:
                 end="\n"
             )
 
-
-if __name__ == "__main__":
+def main():
     parser = Parser()
     arguments = parser.get_arguments()
     payload = {
@@ -80,9 +79,13 @@ if __name__ == "__main__":
         params=payload,
         headers=headers
     ).json()
-
+    
     if 'trips' not in flight_info:
         print(flight_info['message'])
         exit(1)
-
+    
     print_flight_info(flight_info)
+
+
+if __name__ == "__main__":
+    main()
