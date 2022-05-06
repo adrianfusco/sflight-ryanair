@@ -34,38 +34,10 @@ optional arguments:
 ```
 $ sflight --origin SCQ --destination MAD --departure-date 2022-05-20
 
-Origin: Santiago Comp.
-Destination: Madrid
-
-
-2 flights available for day: 2022-05-20T00:00:00.000
-
-  Flight Number: FR 5316
-  Duration: 01:10h
-  Time UTC:  -> 2022-05-20T06:50:00.000 -> 2022-05-20T08:00:00.000
-  Price: 28.29  EUR
-
-  Flight Number: FR 5318
-  Duration: 01:10h
-  Time UTC:  -> 2022-05-20T22:25:00.000 -> 2022-05-20T23:35:00.000
-  Price: 51.39  EUR
-
-____________________________
-
-Origin: Madrid
-Destination: Santiago Comp.
-
-
-2 flights available for day: 2022-05-20T00:00:00.000
-
-  Flight Number: FR 5315
-  Duration: 01:15h
-  Time UTC:  -> 2022-05-20T08:35:00.000 -> 2022-05-20T09:50:00.000
-  Price: 9.99  EUR
-
-  Flight Number: FR 5317
-  Duration: 01:15h
-  Time UTC:  -> 2022-05-20T20:35:00.000 -> 2022-05-20T21:50:00.000
-  Price: 89.02  EUR
-
-____________________________
+Origin City     Destination City    Flight number    Flying duration    Time departure -> Time arrival                      Price
+--------------  ------------------  ---------------  -----------------  --------------------------------------------------  ---------
+Santiago Comp.  Madrid              FR 5316          01:10h             2022-05-20T06:50:00.000 -> 2022-05-20T08:00:00.000  28.29 EUR
+Santiago Comp.  Madrid              FR 5318          01:10h             2022-05-20T22:25:00.000 -> 2022-05-20T23:35:00.000  51.39 EUR
+Madrid          Santiago Comp.      FR 5315          01:15h             2022-05-20T08:35:00.000 -> 2022-05-20T09:50:00.000  9.99 EUR
+Madrid          Santiago Comp.      FR 5317          01:15h             2022-05-20T20:35:00.000 -> 2022-05-20T21:50:00.000  89.02 EUR
+```
