@@ -1,5 +1,7 @@
 from sys import exit
+
 import requests
+
 from search.parser import Parser
 
 API_URL = 'https://www.ryanair.com/api/booking/v4/es-es/availability'

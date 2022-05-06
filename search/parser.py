@@ -1,4 +1,5 @@
 import argparse
+
 from search.validator import Validations
 
 

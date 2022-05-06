@@ -1,5 +1,5 @@
-from datetime import datetime
 from argparse import ArgumentTypeError
+from datetime import datetime
 
 
 class Validations:
