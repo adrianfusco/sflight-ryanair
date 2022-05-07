@@ -37,6 +37,18 @@ class Parser:
             dest='destination',
             required=True
         )
+        self.parser.add_argument(
+            '--only-arrivals',
+            dest='only_arrivals',
+            required=False,
+            action=argparse.BooleanOptionalAction
+        )
+        self.parser.add_argument(
+            '--only-departures',
+            dest='only_departures',
+            required=False,
+            action=argparse.BooleanOptionalAction
+        )
 
     def get_arguments(self: object):
         return self.arguments
