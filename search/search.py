@@ -2,9 +2,11 @@ from sys import exit
 
 import requests
 from tabulate import tabulate
-from search.exceptions import ArrivalsAndDeparturesAnulation
 
+from search.exceptions import (AirportNotAvailable,
+                               ArrivalsAndDeparturesAnulation)
 from search.parser import Parser
+from search.stations import Stations
 
 API_URL = 'https://www.ryanair.com/api/booking/v4/es-es/availability'
 
@@ -16,12 +18,12 @@ def print_flight_info(flight_info: dict, args) -> None:
         destination_city = trip['destinationName']
 
         if args.only_arrivals and \
-            trip['destination'] == args.destination:
-                continue
+                trip['destination'] == args.destination:
+            continue
 
         if args.only_departures and \
-            trip['origin'] == args.destination:
-                continue
+                trip['origin'] == args.destination:
+            continue
 
         for trip_date in trip['dates']:
             if not trip_date['flights']:
@@ -63,6 +65,17 @@ def print_flight_info(flight_info: dict, args) -> None:
 def main() -> None:
     parser = Parser()
     args = parser.get_arguments()
+
+    available_stations = Stations.get_stations()
+
+    if args.origin not in available_stations.keys() or \
+            args.destination not in available_stations.keys():
+        raise AirportNotAvailable(
+            "\nAvailable airports:\n" +
+            "\n".join(f"{airport_code, airport_info['name']}"
+                      for airport_code, airport_info
+                      in available_stations.items())
+        )
 
     if args.only_arrivals and args.only_departures:
         raise ArrivalsAndDeparturesAnulation
