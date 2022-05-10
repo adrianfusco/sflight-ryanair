@@ -18,7 +18,7 @@ Successfully installed sflight-ryanair-0.0.1
 
 ```
 $ sflight -h
-usage: sflight [-h] --departure-date DEPARTURE_DATE --origin ORIGIN --destination DESTINATION
+usage: sflight [-h] --departure-date DEPARTURE_DATE --origin ORIGIN --destination DESTINATION [--only-arrivals | --no-only-arrivals] [--only-departures | --no-only-departures]
 
 Parse the information required to get information about flights in RyanAir
 
@@ -27,6 +27,8 @@ optional arguments:
   --departure-date DEPARTURE_DATE
   --origin ORIGIN
   --destination DESTINATION
+  --only-arrivals, --no-only-arrivals
+  --only-departures, --no-only-departures
 ```
 
 ## Usage examples:
