@@ -60,7 +60,7 @@ def print_flight_info(flight_info: dict, args) -> None:
     )
 
 
-def main():
+def main() -> None:
     parser = Parser()
     args = parser.get_arguments()
 

@@ -8,7 +8,7 @@ class Parser:
     provided by CLI and check the required ones
     """
 
-    def __init__(self: object):
+    def __init__(self: object) -> None:
         parser_description = """
         Parse the information required to get information
         about flights in RyanAir
@@ -50,5 +50,5 @@ class Parser:
             action=argparse.BooleanOptionalAction
         )
 
-    def get_arguments(self: object):
+    def get_arguments(self: object) -> argparse.ArgumentParser:
         return self.arguments
