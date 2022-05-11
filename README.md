@@ -85,7 +85,7 @@ Santiago Comp.  Madrid              FR 5318          01:10h             2022-05-
 - Get airports used by ryanair
 
 ```
-[2022-05-11 16:39:36] {afuscoar@afuscoar} (~/.Personal/Projects/ryanair-prices-search) (main)$ -> sflight airports --get-stations
+$ -> sflight airports --get-stations
 
 Available airports:
 ('AAL', 'Aalborg')
