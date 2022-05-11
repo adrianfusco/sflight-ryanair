@@ -3,7 +3,7 @@ from sys import exit
 from tabulate import tabulate
 
 from sflight.exceptions import (AirportNotAvailable,
-                               ArrivalsAndDeparturesAnulation)
+                                ArrivalsAndDeparturesAnulation)
 from sflight.parser import Parser
 from sflight.requests import Request
 from sflight.stations import Stations
