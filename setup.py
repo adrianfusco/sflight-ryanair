@@ -11,5 +11,8 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': ['sflight = sflight.search:main']
-    }
+    },
+    install_requires=[
+        'requests~=2.27.1'
+    ]
 )
