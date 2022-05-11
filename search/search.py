@@ -1,11 +1,11 @@
 from sys import exit
 
-import requests
 from tabulate import tabulate
 
 from search.exceptions import (AirportNotAvailable,
                                ArrivalsAndDeparturesAnulation)
 from search.parser import Parser
+from search.requests import Request
 from search.stations import Stations
 
 API_URL = 'https://www.ryanair.com/api/booking/v4/es-es/availability'
@@ -66,7 +66,7 @@ def main() -> None:
     parser = Parser()
     args = parser.get_arguments()
 
-    available_stations = Stations.get_stations()
+    available_stations = Stations.get_available_stations()
 
     if args.origin not in available_stations.keys() or \
             args.destination not in available_stations.keys():
@@ -99,15 +99,11 @@ def main() -> None:
         'CHD': 0,
         'ADT': 1
     }
-    headers = {
-        'Content-type': 'application/json',
-        'Accept': 'text/plain'
-    }
-    flight_info = requests.get(
-        API_URL,
-        params=payload,
-        headers=headers
-    ).json()
+
+    flight_info = Request(
+        url=API_URL,
+        payload=payload
+    ).get_data_from_url()
 
     if 'trips' not in flight_info:
         print(flight_info['message'])

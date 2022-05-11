@@ -1,4 +1,5 @@
-import requests
+from search.requests import Request
+
 
 class Stations:
     """Class used to get all the available
@@ -7,13 +8,5 @@ class Stations:
     API_URL = 'https://www.ryanair.com/api/booking/v4/en-gb/res/stations'
 
     @staticmethod
-    def get_stations():
-        headers = {
-        'Content-type': 'application/json',
-        'Accept': 'text/plain'
-        }
-        stations = requests.get(
-            Stations.API_URL,
-            headers=headers
-        ).json()
-        return stations
+    def get_available_stations():
+        return Request(url=Stations.API_URL).get_data_from_url()
