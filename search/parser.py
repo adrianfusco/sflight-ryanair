@@ -11,7 +11,7 @@ class Parser:
     def __init__(self: object) -> None:
         parser_description = """
         Parse the information required to get information
-        about flights in RyanAir
+        about flights and airports in RyanAir
         """
         self.parser = argparse.ArgumentParser(
             description=parser_description,
