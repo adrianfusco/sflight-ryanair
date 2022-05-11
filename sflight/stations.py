@@ -1,4 +1,4 @@
-from search.requests import Request
+from sflight.requests import Request
 
 
 class Stations:

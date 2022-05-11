@@ -1,6 +1,6 @@
 import argparse
 
-from search.validator import Validations
+from sflight.validator import Validations
 
 
 class Parser:

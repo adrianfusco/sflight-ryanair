@@ -2,11 +2,11 @@ from sys import exit
 
 from tabulate import tabulate
 
-from search.exceptions import (AirportNotAvailable,
+from sflight.exceptions import (AirportNotAvailable,
                                ArrivalsAndDeparturesAnulation)
-from search.parser import Parser
-from search.requests import Request
-from search.stations import Stations
+from sflight.parser import Parser
+from sflight.requests import Request
+from sflight.stations import Stations
 
 API_URL = 'https://www.ryanair.com/api/booking/v4/es-es/availability'
 

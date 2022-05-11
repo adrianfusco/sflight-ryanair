@@ -10,6 +10,6 @@ setup(
     url='https://github.com/adrianfusco/sflight-ryanair',
     packages=find_packages(),
     entry_points={
-        'console_scripts': ['sflight = search.search:main']
+        'console_scripts': ['sflight = sflight.search:main']
     }
 )

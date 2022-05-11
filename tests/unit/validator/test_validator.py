@@ -2,7 +2,7 @@ from argparse import ArgumentTypeError
 from datetime import datetime
 from unittest import TestCase
 
-from search.validator import Validations
+from sflight.validator import Validations
 
 
 class TestValidator(TestCase):
