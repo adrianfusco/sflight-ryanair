@@ -14,38 +14,71 @@ class Parser:
         about flights in RyanAir
         """
         self.parser = argparse.ArgumentParser(
-            description=parser_description
+            description=parser_description,
+            prog='sflight'
         )
-        self.__add_new_arguments()
+
+        self.subparsers = self.parser.add_subparsers()
+
+        self.flights_parser = self.subparsers.add_parser(
+            'flights',
+            help='Get information between two flights'
+        )
+        self.airports_parser = self.subparsers.add_parser(
+            'airports',
+            help='Get information about airports'
+        )
+
+        self.__add_flights_arguments()
+        self.__add_airports_arguments()
+
         self.arguments = self.parser.parse_args()
 
-    def __add_new_arguments(self: object) -> None:
-        self.parser.add_argument(
+        if not len(vars(self.arguments)):
+            self.parser.print_help()
+            exit(1)
+
+    def __add_flights_arguments(self: object) -> None:
+        self.flights_parser.add_argument(
             '--departure-date',
             dest='departure_date',
             required=True,
             default=None,
             type=Validations.validate_date_input
         )
-        self.parser.add_argument(
+        self.flights_parser.add_argument(
             '--origin',
             dest='origin',
             required=True
         )
-        self.parser.add_argument(
+        self.flights_parser.add_argument(
             '--destination',
             dest='destination',
             required=True
         )
-        self.parser.add_argument(
+        self.flights_parser.add_argument(
             '--only-arrivals',
             dest='only_arrivals',
             required=False,
             action=argparse.BooleanOptionalAction
         )
-        self.parser.add_argument(
+        self.flights_parser.add_argument(
             '--only-departures',
             dest='only_departures',
+            required=False,
+            action=argparse.BooleanOptionalAction
+        )
+        self.flights_parser.add_argument(
+            '--get-stations',
+            dest='stations_requested',
+            required=False,
+            action=argparse.BooleanOptionalAction
+        )
+
+    def __add_airports_arguments(self: object) -> None:
+        self.airports_parser.add_argument(
+            '--get-stations',
+            dest='stations_requested',
             required=False,
             action=argparse.BooleanOptionalAction
         )

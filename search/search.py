@@ -68,14 +68,18 @@ def main() -> None:
 
     available_stations = Stations.get_available_stations()
 
+    available_airports = "\nAvailable airports:\n" + \
+        "\n".join(f"{airport_code, airport_info['name']}"
+                  for airport_code, airport_info
+                  in available_stations.items())
+
+    if args.stations_requested:
+        print(available_airports)
+        exit(0)
+
     if args.origin not in available_stations.keys() or \
             args.destination not in available_stations.keys():
-        raise AirportNotAvailable(
-            "\nAvailable airports:\n" +
-            "\n".join(f"{airport_code, airport_info['name']}"
-                      for airport_code, airport_info
-                      in available_stations.items())
-        )
+        raise AirportNotAvailable(available_airports)
 
     if args.only_arrivals and args.only_departures:
         raise ArrivalsAndDeparturesAnulation
