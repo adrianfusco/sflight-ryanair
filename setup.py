@@ -13,6 +13,7 @@ setup(
         'console_scripts': ['sflight = sflight.search:main']
     },
     install_requires=[
-        'requests~=2.27.1'
+        'requests~=2.27.1',
+        'tabulate==0.8.9'
     ]
 )
